@@ -1,8 +1,10 @@
 import { getLatest } from "./get_shows";
 import { extractShowData } from "./interfaces";
+import { generateBox } from "./box";
 
 async function NTS() {
-    console.log(extractShowData(await getLatest()));
+    const info = extractShowData(await getLatest());
+    console.log(generateBox(info));
 };
 
 NTS();
