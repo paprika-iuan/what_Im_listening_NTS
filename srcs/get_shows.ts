@@ -32,7 +32,7 @@ async function getData(url: string): Promise<any> {
 }
 
 
-export async function getLatest() {
+export async function getLatest(): Promise<string> {
 	let latest = await getData(urls[0]);;
 	for (const url of urls) {
 		const show = await getData(url);
@@ -40,5 +40,5 @@ export async function getLatest() {
 			latest = show;
 		}
 	}
-	console.log(latest.embeds.episodes.results[0].generes);
+	return latest;
 }
